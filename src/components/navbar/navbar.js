@@ -1,9 +1,26 @@
 import './navbar.scss';
 import $ from 'jquery';
 
+import firebase from 'firebase/app';
+import 'firebase/auth';
+
 const navbarEvents = () => {
   $('.nav-link').on('click', (e) => {
-    console.log(e.target.id);
+    if (e.target.id === 'navbar-logout') {
+      firebase.auth().signOut().then(() => {
+        $('#auth').show();
+        $('#tasks').hide();
+      }).catch((error) => {
+        console.error('navbarEvents error', error);
+      });
+    } else if (e.target.id === 'navbar-auth') {
+      $('#auth').show();
+      $('#tasks').hide();
+    } else if (e.target.id === 'navbar-tasks') {
+      $('#auth').hide();
+      $('#tasks').show();
+    }
+
   });
 };
 
@@ -17,7 +34,11 @@ const addNavbar = () => {
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
-        <a id="navbar-login" class="nav-link">Login</a>
+        <a id="navbar-auth" class="nav-link">Authentication</a>
+      </li>
+      <li class="nav-item active">
+      <a id="navbar-tasks" class="nav-link">Tasks</a>
+
       </li>
       <li class="nav-item active">
         <a id="navbar-logout" class="nav-link">Logout</a>
