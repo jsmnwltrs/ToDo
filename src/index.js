@@ -1,7 +1,12 @@
-import $ from 'jquery';
+// import $ from 'jquery';
 import 'bootstrap';
 import './index.scss';
 
-$('.btn').click(() => {
-  $('#div').append('Heythere');
-});
+import firebase from 'firebase/app';
+import apiKeys from '../db/apiKeys.json';
+
+const initializeApp = () => {
+  firebase.initializeApp(apiKeys.firebaseKeys);
+};
+
+initializeApp();
