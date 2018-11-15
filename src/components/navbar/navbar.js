@@ -20,6 +20,7 @@ const navbarEvents = () => {
       $('#auth').hide();
       $('#tasks').show();
     }
+
   });
 };
 
@@ -37,6 +38,7 @@ const addNavbar = () => {
       </li>
       <li class="nav-item active">
       <a id="navbar-tasks" class="nav-link">Tasks</a>
+
       </li>
       <li class="nav-item active">
         <a id="navbar-logout" class="nav-link">Logout</a>
