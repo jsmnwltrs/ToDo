@@ -20,7 +20,6 @@ const navbarEvents = () => {
       $('#auth').hide();
       $('#tasks').show();
     }
-
   });
 };
 
