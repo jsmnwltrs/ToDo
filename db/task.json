@@ -1,0 +1,22 @@
+{
+  "task1": {
+    "task": "Go Fishing",
+    "isCompleted": false
+  },
+  "task2": {
+    "task": "Pet the Goats",
+    "isCompleted": true
+  },
+  "task3": {
+    "task": "Feed the Chickens",
+    "isCompleted": false
+  },
+  "task4": {
+    "task": "Milk the Cow",
+    "isCompleted": true
+  },
+  "task5": {
+    "task": "Eat Food",
+    "isCompleted": false
+  }
+}
