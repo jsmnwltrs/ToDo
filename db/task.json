@@ -1,22 +1,29 @@
 {
-  "task1": {
-    "task": "Go Fishing",
-    "isCompleted": false
-  },
-  "task2": {
-    "task": "Pet the Goats",
-    "isCompleted": true
-  },
-  "task3": {
-    "task": "Feed the Chickens",
-    "isCompleted": false
-  },
-  "task4": {
-    "task": "Milk the Cow",
-    "isCompleted": true
-  },
-  "task5": {
-    "task": "Eat Food",
-    "isCompleted": false
-  }
+  "tasks": {
+    "task1": {
+      "task": "Go Fishing",
+      "isCompleted": false,
+      "uid": "fZWwkCnz0aPmv2FpDd8Iyea4bUu1"
+    },
+    "task2": {
+      "task": "Pet the Goats",
+      "isCompleted": true,
+      "uid": "fZWwkCnz0aPmv2FpDd8Iyea4bUu1"
+    },
+    "task3": {
+      "task": "Feed the Chickens",
+      "isCompleted": false,
+      "uid": "fZWwkCnz0aPmv2FpDd8Iyea4bUu1"
+    },
+    "task4": {
+      "task": "Milk the Cow",
+      "isCompleted": true,
+      "uid": "fZWwkCnz0aPmv2FpDd8Iyea4bUu1"
+    },
+    "task5": {
+      "task": "Eat Food",
+      "isCompleted": false,
+      "uid": "fZWwkCnz0aPmv2FpDd8Iyea4bUu1"
+    }
+}
 }

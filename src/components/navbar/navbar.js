@@ -9,16 +9,16 @@ const navbarEvents = () => {
     if (e.target.id === 'navbar-logout') {
       firebase.auth().signOut().then(() => {
         $('#auth').show();
-        $('#tasks').hide();
+        $('#taskPage').hide();
       }).catch((error) => {
         console.error('navbarEvents error', error);
       });
     } else if (e.target.id === 'navbar-auth') {
       $('#auth').show();
-      $('#tasks').hide();
+      $('#taskPage').hide();
     } else if (e.target.id === 'navbar-tasks') {
       $('#auth').hide();
-      $('#tasks').show();
+      $('#taskPage').show();
     }
   });
 };
