@@ -27,20 +27,24 @@ const taskPage = () => {
     });
 };
 
+const removeTask = (e) => {
+  const idToDelete = e.target.dataset.deleteId;
+  tasksData.deleteTask(idToDelete)
+    .then(() => {
+      taskPage();
+    })
+    .catch((error) => {
+      console.error('error on removeTask', error);
+    });
+};
 
-// $('body').on('keyup', '#new-task-input', (e) => {
-//   if (e.keyCode === 13) {
-//     addEditTask.printNewTask();
-//   }
-// });
-
-// const bindEvents = () => {
-//   // $('body').on('click', '#edit-task-button', tasksData.editTask);
-//   // $('body').on('click', '#delete-task-button', tasksData.deleteTask);
-// };
+const deleteEvent = () => {
+  $('body').on('click', '.delete-task-button', removeTask);
+};
 
 const initializeTaskPage = () => {
   taskPage();
+  deleteEvent();
 };
 
 export default initializeTaskPage;
