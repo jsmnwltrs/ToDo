@@ -41,8 +41,46 @@ const printNewTask = () => {
     });
 };
 
-$('body').on('click', '#add-task', printNewTask);
+const showEditForm = (e) => {
+  const idToEdit = e.target.dataset.editId;
+  tasksData.getSingleTask(idToEdit)
+    .then((task) => {
+      let domString = '<h2>Edit Task</h2>';
+      domString += formBuilder(task);
+      domString += `<button id="save-task" data-single-edit-id="${task.id}">Save Task</button>`;
+      $('#new-task-input').data('single-edit-id', task.id);
+      $('#add-edit-tasks').html(domString).show();
+      $('#taskPage').hide();
+    })
+    .catch((error) => {
+      console.error('error on showEditForm', error);
+    });
+};
 
+const editTask = (e) => {
+  const updatedTask = getTaskInput();
+  const taskId = e.target.dataset.singleEditId;
+  tasksData.updateTask(updatedTask, taskId)
+    .then(() => {
+      $('#add-edit-task').html('').hide();
+      $('#taskPage').show();
+      initializeTaskPage();
+    })
+    .catch((error) => {
+      console.error('error on editTask', error);
+    });
+};
+
+$('body').on('click', '.edit-task-button', showEditForm);
+$('body').on('click', '#save-task', editTask);
+$('body').on('keyup', '.edit', (e) => {
+  if (e.keyCode === 13) {
+    editTask();
+  }
+});
+
+
+$('body').on('click', '#add-task', printNewTask);
 $('body').on('keyup', '#new-task-input', (e) => {
   if (e.keyCode === 13) {
     printNewTask();
