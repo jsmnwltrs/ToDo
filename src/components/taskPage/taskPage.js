@@ -9,8 +9,8 @@ const printTasks = (tasksArray) => {
   tasksArray.forEach((task) => {
     domString += `
       <p>${task.task}</p>
-      <button id="edit-task-button" class='btn btn-info'>Edit</button>
-      <button id="delete-task-button" class='btn btn-danger'>Delete</button>`;
+      <button data-edit-id='${task.id}' class='btn btn-info edit-task-button'>Edit</button>
+      <button data-delete-id='${task.id}' class='btn btn-danger delete-task-button'>Delete</button>`;
   });
   $('#tasks').html(domString);
 };
