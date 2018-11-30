@@ -73,11 +73,11 @@ const editTask = (e) => {
 
 $('body').on('click', '.edit-task-button', showEditForm);
 $('body').on('click', '#save-task', editTask);
-$('body').on('keyup', '.edit', (e) => {
-  if (e.keyCode === 13) {
-    editTask();
-  }
-});
+// $('body').on('keyup', '.edit', (e) => {
+//   if (e.keyCode === 13) {
+//     editTask();
+//   }
+// });
 
 
 $('body').on('click', '#add-task', printNewTask);
