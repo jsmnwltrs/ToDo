@@ -17,6 +17,17 @@ const getTaskInput = () => {
   return task;
 };
 
+const getUpdatedTaskInput = () => {
+  const checkboxValue = $('#form-checkbox').val();
+  const parseValue = JSON.parse(checkboxValue);
+  const task = {
+    task: $('#new-task-input').val(),
+    isCompleted: parseValue,
+    uid: authHelpers.getUid(),
+  };
+  return task;
+};
+
 const buildAddForm = () => {
   const emptyTask = {
     task: '',
@@ -48,9 +59,11 @@ const showEditForm = (e) => {
       let domString = '<h2>Edit Task</h2>';
       domString += formBuilder(task);
       domString += `<button id="save-task" data-single-edit-id="${task.id}">Save Task</button>`;
+      domString += `<input id="form-checkbox" value="${task.isCompleted}">`;
       $('#new-task-input').data('single-edit-id', task.id);
       $('#add-edit-tasks').html(domString).show();
       $('#taskPage').hide();
+      $('#form-checkbox').hide();
     })
     .catch((error) => {
       console.error('error on showEditForm', error);
@@ -58,11 +71,11 @@ const showEditForm = (e) => {
 };
 
 const editTask = (e) => {
-  const updatedTask = getTaskInput();
+  const updatedTask = getUpdatedTaskInput();
   const taskId = e.target.dataset.singleEditId;
   tasksData.updateTask(updatedTask, taskId)
     .then(() => {
-      $('#add-edit-task').html('').hide();
+      $('#add-edit-tasks').html('').hide();
       $('#taskPage').show();
       initializeTaskPage();
     })

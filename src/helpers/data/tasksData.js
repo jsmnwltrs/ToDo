@@ -40,10 +40,13 @@ const updateTask = (taskObject, taskId) => axios.put(`${firebaseUrl}/tasks/${tas
 
 const deleteTask = taskId => axios.delete(`${firebaseUrl}/tasks/${taskId}.json`);
 
+const updateCheckbox = (taskId, isCompleted) => axios.patch(`${firebaseUrl}/tasks/${taskId}.json`, { isCompleted });
+
 export default {
   getTasks,
   addNewTask,
   getSingleTask,
   updateTask,
   deleteTask,
+  updateCheckbox,
 };
